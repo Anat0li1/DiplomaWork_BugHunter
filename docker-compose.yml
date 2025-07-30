@@ -1,8 +1,26 @@
-version: "3.8"
+version: '3.8'
+
 services:
   web:
-    build: .
+    build:
+      context: ./diploma_app
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
-    volumes:
-      - ./app:/app
+    env_file:
+      ./diploma_app/.dbenv
+#
+#  db:
+#    image: postgres:16
+#    restart: unless-stopped
+#    environment:
+#      POSTGRES_DB: BugHunterLocalDB
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: 130505
+#    ports:
+#      - "4321:5432"
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+#
+#volumes:
+#  pgdata:

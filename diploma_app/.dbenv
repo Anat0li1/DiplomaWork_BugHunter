@@ -1,0 +1,1 @@
+DATABASE_URL='postgresql+psycopg2://postgres:130505@host.docker.internal:4321/BugHunterLocalDB'

@@ -1,0 +1,16 @@
+from sqlalchemy import Numeric
+
+from diploma_app.db import db
+
+
+class Product(db.Model):
+    __tablename__ = 'products'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    price = db.Column(Numeric(10, 2), nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey('shops.id'))
+    shop = db.relationship('Shop', back_populates='items')
+
+    __table_args__ = (db.UniqueConstraint('shop_id', 'name', name='uix_shop_product_name'),)
