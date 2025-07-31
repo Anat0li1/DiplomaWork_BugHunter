@@ -4,3 +4,7 @@ from diploma_app.models import user
 from diploma_app.models import order
 from diploma_app.models import cart_item
 from diploma_app.models import order_item
+from diploma_app.models import test_case
+from diploma_app.models import test_step
+from diploma_app.models import bug_report
+from diploma_app.models import bug_step

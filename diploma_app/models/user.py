@@ -14,3 +14,4 @@ class User(db.Model):
 
     shop = db.relationship("Shop", back_populates="user", uselist=False)
 
+

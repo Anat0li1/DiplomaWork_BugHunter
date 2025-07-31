@@ -25,7 +25,7 @@ class StoreCRUD(MethodView):
 
         return {"message": "Shop created successfully."}, 201
 
-    @blp.response(ShopSchema)
+    @blp.response(200, ShopSchema)
     @jwt_required()
     def get(self):
         user_id = get_jwt_identity()

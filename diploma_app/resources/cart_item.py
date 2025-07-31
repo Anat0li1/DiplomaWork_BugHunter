@@ -14,7 +14,7 @@ blp = Blueprint("CartItem", "cart items", description="Operations related to car
 
 @blp.route("/cart")
 class CartCRD(MethodView):
-    @blp.response(CartItemSchema(many=True))
+    @blp.response(200, CartItemSchema(many=True))
     @jwt_required
     def get(self):
         user = User.query.filter(User.id == get_jwt_identity()).first()

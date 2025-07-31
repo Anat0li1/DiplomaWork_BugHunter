@@ -6,3 +6,4 @@ flask-jwt-extended
 passlib
 psycopg2
 flask-migrate
+flask-mail

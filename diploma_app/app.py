@@ -3,7 +3,12 @@ from flask_jwt_extended import JWTManager
 from flask import Flask
 from flask_smorest import Api
 from diploma_app.db import db
-from diploma_app.resources.user import blp as UsersBlueprint
+from diploma_app.resources.user import blp as user_blueprint
+from diploma_app.resources.shop import blp as shop_blueprint
+from diploma_app.resources.product import blp as product_blueprint
+from diploma_app.resources.order import blp as order_blueprint
+from diploma_app.resources.cart_item import blp as cart_item_blueprint
+from diploma_app.resources.test_case import blp as test_case_blueprint
 from dotenv import load_dotenv
 from flask_migrate import Migrate
 import diploma_app.models
@@ -21,6 +26,16 @@ def create_app():
     app.config[
         "OPENAPI_SWAGGER_UI_URL"
     ] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
+    app.config["OPENAPI_COMPONENTS"] = {
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+    app.config["OPENAPI_SECURITY"] = [{"BearerAuth": []}]
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["PROPAGATE_EXCEPTIONS"] = True
@@ -36,9 +51,11 @@ def create_app():
     #     import diploma_app.models
     #     db.create_all()
 
-    api.register_blueprint(UsersBlueprint)
-    # api.register_blueprint(ItemBlueprint)
-    # api.register_blueprint(StoreBlueprint)
-    # api.register_blueprint(TagBlueprint)
+    api.register_blueprint(user_blueprint)
+    api.register_blueprint(shop_blueprint)
+    api.register_blueprint(product_blueprint)
+    api.register_blueprint(order_blueprint)
+    api.register_blueprint(cart_item_blueprint)
+    api.register_blueprint(test_case_blueprint)
 
     return app
