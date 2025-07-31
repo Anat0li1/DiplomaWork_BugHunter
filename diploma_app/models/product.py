@@ -11,6 +11,6 @@ class Product(db.Model):
     price = db.Column(Numeric(10, 2), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     shop_id = db.Column(db.Integer, db.ForeignKey('shops.id'))
-    shop = db.relationship('Shop', back_populates='items')
+    shop = db.relationship('Shop', back_populates='products')
 
     __table_args__ = (db.UniqueConstraint('shop_id', 'name', name='uix_shop_product_name'),)

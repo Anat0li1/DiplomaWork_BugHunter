@@ -9,6 +9,7 @@ from diploma_app.resources.product import blp as product_blueprint
 from diploma_app.resources.order import blp as order_blueprint
 from diploma_app.resources.cart_item import blp as cart_item_blueprint
 from diploma_app.resources.test_case import blp as test_case_blueprint
+from diploma_app.resources.bug_report import blp as bug_report_blueprint
 from dotenv import load_dotenv
 from flask_migrate import Migrate
 import diploma_app.models
@@ -26,14 +27,17 @@ def create_app():
     app.config[
         "OPENAPI_SWAGGER_UI_URL"
     ] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-    app.config["OPENAPI_COMPONENTS"] = {
-        "securitySchemes": {
-            "BearerAuth": {
-                "type": "http",
-                "scheme": "bearer",
-                "bearerFormat": "JWT"
+    app.config["API_SPEC_OPTIONS"] = {
+        "components": {
+            "securitySchemes": {
+                "BearerAuth": {
+                    "type": "http",
+                    "scheme": "bearer",
+                    "bearerFormat": "JWT",
+                }
             }
-        }
+        },
+        "security": [{"BearerAuth": []}],
     }
     app.config["OPENAPI_SECURITY"] = [{"BearerAuth": []}]
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
@@ -57,5 +61,6 @@ def create_app():
     api.register_blueprint(order_blueprint)
     api.register_blueprint(cart_item_blueprint)
     api.register_blueprint(test_case_blueprint)
+    api.register_blueprint(bug_report_blueprint)
 
     return app
