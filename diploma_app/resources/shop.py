@@ -18,6 +18,7 @@ class StoreCRUD(MethodView):
         shop = Shop(
             name=user_data["name"],
             description=user_data["description"],
+            user_id = user_id
         )
 
         db.session.add(shop)
@@ -32,7 +33,7 @@ class StoreCRUD(MethodView):
         shop = Shop.query.filter(Shop.user_id == user_id).first()
         if not shop:
             abort(404, message="Shop for current user not found")
-        return {"shop": shop}
+        return shop
 
     @blp.arguments(ShopSchema)
     @jwt_required()
@@ -54,7 +55,7 @@ class StoreCRUD(MethodView):
         user_id = get_jwt_identity()
         shop = Shop.query.filter(Shop.user_id == user_id).first()
         if not shop:
-            return {"message": "No content"} , 202
+            abort(404, message="Shop for current user not found")
         db.session.delete(shop)
-
+        db.session.commit()
         return {"message": "Shop deleted successfully."}, 200

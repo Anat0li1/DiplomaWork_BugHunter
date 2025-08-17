@@ -10,4 +10,6 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY . .
 
+COPY ./frontend /diploma_app/frontend
+
 CMD ["flask", "--app", "app.py", "run", "--host=0.0.0.0"]

@@ -14,3 +14,12 @@ class Product(db.Model):
     shop = db.relationship('Shop', back_populates='products')
 
     __table_args__ = (db.UniqueConstraint('shop_id', 'name', name='uix_shop_product_name'),)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'price': self.price,
+            'quantity': self.quantity
+        }

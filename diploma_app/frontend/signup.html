@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/auth.js" defer></script>
+</head>
+<body>
+  <form class="auth-form">
+    <h2 class="form-title">Sign Up</h2>
+    <input type="text" name="username" placeholder="Username" class="input-field" required>
+    <input type="email" name="email" placeholder="Email" class="input-field" required>
+    <input type="password" name="password" placeholder="Password" class="input-field" required>
+    <select name="active_role" class="input-field" required>
+      <option value="" disabled selected>Select Role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+    <button type="submit" class="submit-btn">Sign Up</button>
+    <p class="small-text">Already have an account? <a href="/login.html" class="link">Log In</a></p>
+  </form>
+</body>
+</html>
