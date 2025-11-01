@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перегляд тест-кейсу</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 id="tc-title">Завантаження...</h1>
+            <div>
+                <a href="/test-cases.html" class="button-secondary">Назад до списку</a>
+                <a href="#" id="edit-btn" class="button-primary">Редагувати</a>
+            </div>
+        </div>
+
+        <div class="tc-details-grid">
+            <div><strong>ID:</strong> <span id="tc-given-id"></span></div>
+            <div><strong>Пріоритет:</strong> <span id="tc-priority"></span></div>
+            <div><strong>Версія:</strong> <span id="tc-version"></span></div>
+            <div><strong>Оточення:</strong> <span id="tc-environment"></span></div>
+        </div>
+
+        <h3>Опис</h3>
+        <p id="tc-description"></p>
+
+        <h3>Передумови</h3>
+        <p id="tc-preconditions"></p>
+
+        <h3>Кроки виконання</h3>
+        <div id="steps-container"></div>
+
+        <h3>Постумови</h3>
+        <p id="tc-postconditions"></p>
+
+        <h3>Коментарі</h3>
+        <p id="tc-comments"></p>
+
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/view-test-case.js"></script>
+</body>
+
+</html>

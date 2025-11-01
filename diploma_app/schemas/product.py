@@ -7,3 +7,5 @@ class ProductSchema(Schema):
     description = fields.Str(required=True)
     price = fields.Float(required=True)
     quantity = fields.Int(required=True)
+    image_url = fields.Str(allow_none=True)
+    category = fields.Str(allow_none=True) 

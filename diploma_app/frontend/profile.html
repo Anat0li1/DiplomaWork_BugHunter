@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <main class="container">
+        <h1>Редагування профілю</h1>
+        <form id="profile-form">
+            <label for="profile-username">Ім'я користувача:</label>
+            <input type="text" id="profile-username" required>
+
+            <label for="profile-email">Email:</label>
+            <input type="email" id="profile-email" required>
+
+            <label for="profile-password">Новий пароль (залиште порожнім, щоб не змінювати):</label>
+            <input type="password" id="profile-password">
+
+            <button type="submit">Зберегти зміни</button>
+        </form>
+        <div id="message-area" class="message-toast"></div>
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/profile.js"></script>
+</body>
+
+</html>

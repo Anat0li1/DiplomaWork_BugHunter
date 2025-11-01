@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Створити магазин</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <main class="container">
+        <h1>Створення вашого магазину</h1>
+        <p>Заповніть інформацію, щоб почати продавати свої товари.</p>
+        <form id="create-shop-form">
+            <div id="message-area" class="message"></div>
+            <input type="text" id="shop-name" placeholder="Назва магазину" required>
+            <textarea id="shop-description" placeholder="Розкажіть про ваш магазин" required></textarea>
+            <button type="submit">Створити магазин</button>
+        </form>
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/shop-creator.js"></script>
+</body>
+
+</html>

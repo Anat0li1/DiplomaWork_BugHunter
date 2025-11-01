@@ -12,6 +12,7 @@ class TestStepSchema(Schema):
 class TestCaseSchema(Schema):
     id = fields.Int(dump_only=True)
     given_id = fields.Int(required=True)
+    application_group = fields.Str(allow_none=True)
 
     title = fields.Str(required=True)
     description = fields.Str(required=True)
@@ -37,6 +38,7 @@ class TestCaseSchema(Schema):
 class TestCasePreview(Schema):
     given_id = fields.Int(required=True)
     title = fields.Str(required=True)
+    application_group = fields.Str(allow_none=True)
     is_system = fields.Bool()
     priority = fields.Str(required=True)
 

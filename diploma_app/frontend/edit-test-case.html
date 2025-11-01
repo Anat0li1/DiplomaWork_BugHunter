@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагування тест-кейсу</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+    <main class="container">
+        <h1 id="page-title">Створення нового тест-кейсу</h1>
+        <form id="test-case-form">
+            <div class="form-grid">
+                <input type="text" id="title" placeholder="Назва" required>
+                <input type="number" id="given_id" placeholder="ID" required>
+                <input type="text" id="application_group" placeholder="Папка / Група додатку">
+                <input type="number" id="priority" placeholder="Пріоритет" required>
+                <input type="text" id="version" placeholder="Версія" required>
+                <input type="text" id="environment" placeholder="Оточення" required>
+            </div>
+            <textarea id="description" placeholder="Опис" required></textarea>
+            <textarea id="preconditions" placeholder="Передумови"></textarea>
+
+            <h3>Кроки</h3>
+            <div id="steps-editor">
+            </div>
+            <button type="button" id="add-step-btn" class="button-secondary">Додати крок</button>
+
+            <textarea id="postconditions" placeholder="Постумови"></textarea>
+            <textarea id="comments" placeholder="Коментарі"></textarea>
+
+            <div class="form-actions">
+                <button type="submit" class="button-primary">Зберегти</button>
+                <a href="/test-cases.html" class="button-secondary">Скасувати</a>
+            </div>
+        </form>
+        <div id="message-area" class="message-toast"></div>
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/edit-test-case.js"></script>
+</body>
+
+</html>

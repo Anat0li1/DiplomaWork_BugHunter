@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест кейси</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Список тест-кейсів</h1>
+            <a href="/edit-test-case.html" class="button-primary">Створити новий тест-кейс</a>
+        </div>
+
+        <div class="filters">
+            <strong>Папки:</strong>
+            <div id="groups-container" class="groups-container">
+            </div>
+        </div>
+
+        <table id="test-cases-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Назва</th>
+                    <th>Тип</th>
+                    <th>Пріоритет</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/test-cases.js"></script>
+</body>
+
+</html>

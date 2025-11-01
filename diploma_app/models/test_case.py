@@ -7,6 +7,8 @@ class TestCase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     given_id = db.Column(db.Integer, nullable=False)
 
+    application_group = db.Column(db.String(100), nullable=True, index=True)
+
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=False)
     priority = db.Column(db.Integer, nullable=False)

@@ -14,3 +14,10 @@ class OrderItem(db.Model):
 
     order = db.relationship('Order', back_populates="items")
     product = db.relationship('Product')
+
+    def serialize(self):
+        return {
+            'product_name': self.product_name,
+            'unit_price': float(self.unit_price),
+            'quantity': self.quantity
+        }

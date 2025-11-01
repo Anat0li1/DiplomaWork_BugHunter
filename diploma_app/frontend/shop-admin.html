@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Керування магазином</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <main class="container">
+        <div class="shop-header">
+            <h1 id="admin-shop-name">Керування магазином</h1>
+            <button id="role-switch-btn" class="role-switch-btn">Перейти в режим покупця</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'ShopInfo')">Інформація</button>
+            <button class="tab-link" onclick="openTab(event, 'Products')">Товари</button>
+        </div>
+
+        <div id="ShopInfo" class="tab-content" style="display: block;">
+            <h2>Редагувати інформацію</h2>
+            <form id="shop-form">
+                <input type="text" id="shop-name-input" placeholder="Назва магазину" required>
+                <textarea id="shop-description-input" placeholder="Опис магазину" required></textarea>
+                <button type="submit">Зберегти зміни</button>
+            </form>
+            <hr>
+            <h2>Небезпечна зона</h2>
+            <button id="delete-shop-btn" class="danger">Видалити магазин</button>
+        </div>
+
+        <div id="Products" class="tab-content">
+            <h2>Керування товарами</h2>
+            <form id="product-form">
+                <h3>Додати/Оновити продукт</h3>
+                <input type="hidden" id="product-id">
+                <input type="text" id="product-name" placeholder="Назва продукту" required>
+                <textarea id="product-description" placeholder="Опис продукту"></textarea>
+                <input type="number" id="product-price" placeholder="Ціна" step="0.01" required>
+                <input type="number" id="product-quantity" placeholder="Кількість" required>
+                <button type="submit">Зберегти продукт</button>
+                <button type="button" id="cancel-edit-btn" style="display: none;">Скасувати</button>
+            </form>
+            <hr>
+            <h3>Список продуктів</h3>
+            <input type="text" id="product-search" placeholder="Пошук товару за назвою...">
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>Назва</th>
+                        <th>Ціна</th>
+                        <th>Кількість</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="message-area" class="message-toast"></div>
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/shop-admin.js"></script>
+</body>
+
+</html>

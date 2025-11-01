@@ -65,9 +65,10 @@ class OrdersCR(MethodView):
             abort(400, message="Admins cannot have orders.")
         if not user.shop:
             abort(400, message="Orders cannot exist without shop.")
+        
         orders = Order.query.filter_by(user_id=user.id).all()
         if not orders:
-            abort(200, message="Your list of orders is empty.")
+            return {"orders": []}, 200
         return {"orders": [order.serialize() for order in orders]}, 200
 
 @blp.route("/orders/<int:order_id>")

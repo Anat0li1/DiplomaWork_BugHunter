@@ -16,3 +16,11 @@ class Order(db.Model):
 
     user = db.relationship('User', backref=db.backref('orders', lazy='dynamic'))
     items = db.relationship('OrderItem', back_populates="order", lazy="joined", cascade="all, delete-orphan")
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'created_at': self.created_at.isoformat(),
+            'total_amount': float(self.total_amount),
+            'items': [item.serialize() for item in self.items]
+        }

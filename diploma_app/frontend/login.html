@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="/static/styles.css">
-  <script src="/static/auth.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід та Реєстрація</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
-  <form class="auth-form">
-    <h2 class="form-title">Log In</h2>
-    <input type="email" name="email" placeholder="Email" class="input-field" required>
-    <input type="password" name="password" placeholder="Password" class="input-field" required>
-    <button type="submit" class="submit-btn">Log In</button>
-    <p class="small-text">Don’t have an account? <a href="/signup.html" class="link">Sign Up</a></p>
-  </form>
+    <div class="auth-container">
+        <div id="login-view">
+            <form id="login-form" class="auth-form">
+                <h2>Вхід в акаунт</h2>
+                <div id="login-error" class="error-message"></div>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Пароль" required>
+                <button type="submit">Увійти</button>
+                <p class="auth-switch">Немає акаунту? <a href="#" id="show-register">Зареєструватися</a></p>
+            </form>
+        </div>
+
+        <div id="register-view" style="display: none;">
+            <form id="register-form" class="auth-form">
+                <h2>Створення акаунту</h2>
+                <div id="register-error" class="error-message"></div>
+                <input type="text" id="register-username" placeholder="Ім'я користувача" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Пароль" required>
+                <button type="submit">Створити акаунт</button>
+                <p class="auth-switch">Уже є акаунт? <a href="#" id="show-login">Увійти</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/auth.js"></script>
 </body>
+
 </html>

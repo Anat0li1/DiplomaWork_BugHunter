@@ -1,49 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Shop</title>
-    <link rel="stylesheet" href="/static/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій магазин</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
-    <header class="shop-header">
-        <button id="back-btn">Back</button>
-        <button id="create-shop-btn">Create Shop</button>
+    <header>
+        <nav>
+            <a href="/index.html">Головна</a>
+            <a href="/shop.html" class="active">Мій магазин</a>
+            <a href="/products.html">Продукти</a>
+            <a href="/cart.html">Кошик</a>
+            <a href="/orders.html">Замовлення</a>
+            <button id="logout-btn">Вийти</button>
+        </nav>
     </header>
-
-    <main id="shop-content" class="shop-container">
-        <form id="shop-form" class="hidden">
-            <label for="shop-name">Name</label>
-            <input type="text" id="shop-name" name="name" required maxlength="100" />
-            <label for="shop-description">Description</label>
-            <textarea id="shop-description" name="description" required maxlength="200"></textarea>
-            <button type="submit">Create</button>
+    <div class="container">
+        <h1>Керування магазином</h1>
+        <div id="message-area" class="message"></div>
+        <form id="shop-form">
+            <input type="hidden" id="shop-exists" value="false">
+            <input type="text" id="shop-name" placeholder="Назва магазину" required>
+            <textarea id="shop-description" placeholder="Опис магазину" required></textarea>
+            <button type="submit">Зберегти</button>
         </form>
-
-        <section id="shop-view" class="hidden">
-            <div class="shop-info">
-                <h2 id="shop-title"></h2>
-                <p id="shop-description-text"></p>
-            </div>
-            <div class="role-bar">
-                <span id="current-role"></span>
-                <button id="toggle-role-btn">Toggle Role</button>
-            </div>
-            <div class="admin-section hidden">
-                <button id="create-product-btn">Create Product</button>
-                <ul id="product-list" class="product-list"></ul>
-            </div>
-            <div class="user-section hidden">
-                <ul id="user-product-list" class="product-list"></ul>
-                <a href="/cart.html" class="cart-link">🛒 Cart</a>
-            </div>
-        </section>
-    </main>
-
-    <script src="/static/shop.js"></script>
+        <button id="delete-shop-btn" class="danger" style="display: none;">Видалити магазин</button>
+    </div>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/shop.js"></script>
 </body>
 
 </html>
